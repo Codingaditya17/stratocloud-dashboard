@@ -19,10 +19,16 @@ Strato-cloud/
 │       ├── main.jsx
 │       ├── index.css
 │       ├── App.jsx
-│       └── components/
-│           ├── StatsBar.jsx
-│           ├── FilterBar.jsx
-│           └── UserTable.jsx
+│       ├── components/
+│       │   ├── StatsBar.jsx
+│       │   ├── FilterBar.jsx
+│       │   └── UserTable.jsx
+│       └── test/
+│           ├── setup.js
+│           ├── StatsBar.test.jsx
+│           ├── FilterBar.test.jsx
+│           └── UserTable.test.jsx
+├── .gitignore
 └── README.md
 ```
 
@@ -45,7 +51,24 @@ npm run dev
 App runs on http://localhost:5173
 
 ### Run Tests
+
+**Go (9 tests):**
 ```bash
 cd backend
 go test ./... -v
 ```
+
+**React (21 tests):**
+```bash
+cd frontend
+npm test
+```
+
+## API
+
+`GET /api/users` — returns all users with live-computed fields
+
+Optional query params:
+- `?mfa=true` or `?mfa=false` — filter by MFA status
+- `?stale=password` — users with password older than 365 days
+- `?stale=access` — users inactive for 90+ days
