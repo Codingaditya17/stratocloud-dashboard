@@ -71,4 +71,4 @@ npm test
 Optional query params:
 - `?mfa=true` or `?mfa=false` — filter by MFA status
 - `?stale=password` — users with password older than 365 days
-- `?stale=access` — users inactive for 90+ days
+- `?stale=access` — users inactive for 90 +  days
